@@ -2,7 +2,7 @@
   <div class="v-margin">
     <span>Question #{{index + 1}}</span>
     <span class="warning-label">
-      <span *ngIf="correct === -1">Warning: There should be a correct answer!</span>
+      <span *ngIf="correct === -1 && editable">Warning: There should be a correct answer!</span>
     </span>
   </div>
   <div *ngIf="editable; then edit else plaintext"></div>
