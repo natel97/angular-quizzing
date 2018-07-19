@@ -1,0 +1,30 @@
+<h3>Create an account to begin creating and taking quizzes!</h3>
+
+<form>
+  <label>
+    First Name: 
+    <input [(ngModel)]="user.firstName" placeholder="First Name" [ngModelOptions]="{standalone: true}">
+  </label>
+  <br>
+  <label>
+    Last Name: 
+    <input [(ngModel)]="user.lastName" placeholder="Last Name" [ngModelOptions]="{standalone: true}">
+  </label>
+  <br>
+  <label>
+    Email Address: 
+    <input [(ngModel)]="user.email" placeholder="Email" [ngModelOptions]="{standalone: true}">
+  </label>
+  <br>
+  <label>
+    Username: 
+    <input [(ngModel)]="user.username" placeholder="Username" [ngModelOptions]="{standalone: true}">
+  </label>
+  <br>
+  <label>
+    Password: 
+    <input required minlength="8" [(ngModel)]="user.password" type="password" placeholder="Password" [ngModelOptions]="{standalone: true}">
+  </label>
+  <br>
+  <input type="submit" value="Create an Account" (click)="validateAndCreate">
+</form>

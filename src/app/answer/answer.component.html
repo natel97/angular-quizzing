@@ -1,0 +1,14 @@
+<div class="answer" *ngIf="editable; then edit else plaintext"></div>
+
+
+<ng-template #plaintext>
+    <li>{{index + 1}}: {{answer.text}}</li>
+</ng-template>
+<ng-template #edit>
+<label class="inline-flex width-100">
+    <div class="nowrap">Choice #{{index + 1}}</div>
+    <input class="form-control" [hidden]="!editable" 
+    [(ngModel)]="answer.text" placeholder="Answer">
+    <button (click)="removeMe()" class="btn btn-danger margin-left" (mouseleave)="normalize($event)" (mouseover)="showDamage($event)">x</button>
+</label>
+</ng-template>

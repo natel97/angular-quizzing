@@ -1,0 +1,19 @@
+#navbar,
+#navbar-left,
+#navbar-right {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  background-color: #ccc;
+  flex-direction: row;
+  padding: 12px;
+}
+
+#navbar-left a,
+#navbar-right a {
+  margin: 0px 12px;
+  padding: 8px;
+  text-decoration: none;
+  background-color: #bababa;
+  color: black;
+}

@@ -1,0 +1,7 @@
+<div class="card-columns">
+  <a *ngFor="let quiz of quizzes" class="card bg-warning" [routerLink]="['/quiz', quiz.id]">
+    <div class="card-title">> {{quiz.text}} </div>
+    <div class="card-text"> by {{quiz.author.firstName}} {{quiz.author.lastName}} -- {{quiz.questions.length}} Question{{quiz.questions.length > 1 ? 's' : ''}}</div>
+  </a>
+</div>
+<a [routerLink]="['/quiz', -1]">New Quiz</a>

@@ -1,0 +1,22 @@
+<div>
+  <div *ngIf="editable; then edit else plaintext"></div>
+  <ng-template #plaintext>
+    <div>{{quiz.text}}</div>
+  </ng-template>
+  <ng-template #edit>
+    <div>
+      <input placeholder="Quiz Title" class="form-control" [(ngModel)]="quiz.text">
+    </div>
+  </ng-template>
+  <div>
+    <div *ngFor="let question of quiz.questions; let index = index">
+      <app-question (removed)="removeAtIndex($event)" [question]="question" [index]="index" [editable]="editable"></app-question>
+      <hr>
+    </div>
+    <div [hidden]="!editable">
+      <button (click)="addQuestion()" class="btn btn-secondary">Add Question</button>
+      <button (click)="saveQuiz()" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+  <button [hidden]="editable" (click)="editable = !editable" class="btn btn-info">Edit me!</button>
+</div>

@@ -1,0 +1,14 @@
+.inline-flex {
+    display: inline-flex;
+}
+
+.margin-left {
+    margin-left: 16px;
+}
+:host, .width-100 {
+    width: 100%;
+}
+.nowrap {
+    white-space: nowrap;
+    margin-right: 8px;
+}

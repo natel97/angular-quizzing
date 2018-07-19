@@ -1,0 +1,28 @@
+<div class="question">
+  <div class="v-margin">
+    <span>Question #{{index + 1}}</span>
+    <span class="warning-label">
+      <span *ngIf="correct === -1">Warning: There should be a correct answer!</span>
+    </span>
+  </div>
+  <div *ngIf="editable; then edit else plaintext"></div>
+  <ng-template #plaintext>
+    <p>{{question.text}}</p>
+  </ng-template>
+  <ng-template #edit>
+    <label class="inline-flex width-100">
+      <div class="margin-right">Question:</div>
+      <input placeholder="Question Title" class="form-control" [(ngModel)]="question.text">
+      <span (mouseover)="showDamage($event)" (mouseleave)="normalize($event)" (click)="removeMe()" class="margin-left btn btn-danger">x</span>
+    </label>
+  </ng-template>
+  <div class="question-answers width-100">
+    <div class="question-answer width-100" *ngFor="let answer of question.answers; let index = index;">
+      <app-answer [answer]=answer [editable]="editable" [index]="index" (removed)="removeAtIndex($event)"></app-answer>
+      <label class=" margin-left inline-flex btn {{correct && answer.id === correct ? 'btn-success' : 'btn-danger'}}" [hidden]="!editable">
+        <input type="checkbox" [(checked)]="correct === answer.id" (change)="setCorrect(answer.id)"> Mark as {{correct !== answer.id ? 'Correct' : 'Incorrect'}}
+      </label>
+    </div>
+  </div>
+  <input [hidden]="!editable" type="button" value="Add Answer" class="btn btn-info" (click)="addAnswer()">
+</div>

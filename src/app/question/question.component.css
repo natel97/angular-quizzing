@@ -1,0 +1,43 @@
+.inline-flex{
+    display: inline-flex;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+.correct {
+    background-color: green;
+}
+
+.v-margin {
+    margin: 16px 0;
+}
+
+.margin-left {
+    margin-left: 16px;
+}
+
+.margin-right { 
+  margin-right: 10px;
+}
+
+.question-answer {
+    transition: background-color .25s;
+    display: flex;
+}
+
+.question, .question-answer {
+    transition: filter .25s;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.warning-label {
+    color: brown;
+    height: 32px;
+    width: 100%;
+    padding-left: 30%;
+}
